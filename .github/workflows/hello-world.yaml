@@ -1,0 +1,9 @@
+name: Hello World
+items:
+  sub-item:
+    name: Hello
+    description: world
+  sub-list:
+    - element a
+    - element b
+  other-list: [1, 2, 3]
