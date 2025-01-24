@@ -7,6 +7,7 @@ WORKDIR /app
  
 # copy our local src folder to /app in the container
 COPY ./src/ /app
+COPY ./conf/entrypoint.sh /app/entrypoint.sh
  
 # Run os-level updates
 RUN apt-get update && \
@@ -23,4 +24,6 @@ RUN /opt/venv/bin/python -m pip install --upgrade pip
 RUN /opt/venv/bin/python -m pip install -r requirements.txt
  
 # Run a server to expose copied files
-CMD ["/opt/venv/bin/python", "-m", "http.server", "8080"]
+RUN chmod +x ./entrypoint.sh
+# Run a server to expose copied files
+CMD ["./entrypoint.sh"]
