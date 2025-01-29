@@ -1,7 +1,6 @@
 name: Install NGINX
 on:
   workflow_dispatch:
-  push:
  
 jobs:
   build:
