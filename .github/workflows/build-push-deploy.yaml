@@ -6,7 +6,6 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    runs-on: ubuntu-latest
     env:
       DH_USER: $glossterm::[ secrets.DOCKERHUB_USERNAME ]
       REPO: $glossterm::[ secrets.DOCKERHUB_REPO ]
