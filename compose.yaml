@@ -1,9 +1,18 @@
 services:
+  my-nginx-service:
+    image: nginx
   web:
     build:
       context: .
       dockerfile: Dockerfile
     ports:
       - "8080:8080"
+    env_file:
+      - .env
     environment:
       - PORT=8080
+    volumes:
+      - mywebdata:/app/data
+ 
+volumes:
+  mywebdata:

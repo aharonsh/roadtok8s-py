@@ -12,6 +12,9 @@ COPY ./conf/entrypoint.sh /app/entrypoint.sh
 # Run os-level updates
 RUN apt-get update && \
     apt-get install -y python3-venv python3-dev python3-pip
+
+# Install redis-tools
+RUN apt-get install -y redis-tools
  
 # Create our Python virtual environment
 RUN python3 -m venv /opt/venv
