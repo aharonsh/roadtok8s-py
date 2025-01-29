@@ -10,7 +10,7 @@ jobs:
       DH_USER: $glossterm::[ secrets.DOCKERHUB_USERNAME ]
       REPO: $glossterm::[ secrets.DOCKERHUB_REPO ]
       SSH_OPTS: '-o StrictHostKeyChecking=no'
-      REMOTE: 'root@$glossterm::[ secrets.AKAMAI_INSTANCE_IP_ADDRESS ]'
+      REMOTE: 'root@$glossterm::[ secrets.AKAMAI_INSTANCE_DOCKER_IP_ADDRESS ]'
       REMOTE_APP_DIR: '/opt/app'
     steps:
     - name: Checkout code
@@ -19,7 +19,7 @@ jobs:
       uses: docker/login-action@v2
       with:
         username: $glossterm::[ secrets.DOCKERHUB_USERNAME ]
-        password: $glossterm::[ secrets.DOCKERHUB_TOKEN ]
+        password: $glossterm::[ secrets.DOCKERHUB_PASSWORD ]
     - name: Build the Docker image
       run: |
         docker build -f Dockerfile \
